@@ -1,12 +1,12 @@
 #!perl
-#
-# This file is part of Audio::MPD::Common
-# Copyright (c) 2007 Jerome Quelin, all rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself.
-#
-#
+# 
+# This file is part of Audio-MPD-Common
+# 
+# This software is copyright (c) 2007 by Jerome Quelin.
+# 
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+# 
 
 use strict;
 use warnings;
@@ -16,7 +16,7 @@ use Test::More tests => 14;
 
 #
 # formatted output
-my $time = Audio::MPD::Common::Time->new( '126:225' );
+my $time = Audio::MPD::Common::Time->new( time => '126:225' );
 is( $time->sofar,   '2:06', 'sofar() formats time so far' );
 is( $time->left,    '1:39', 'left() formats remaining time' );
 is( $time->total,   '3:45', 'sofar() formats time so far' );
@@ -43,7 +43,5 @@ is( $time->seconds_total, 225, 'seconds_total() gives time total in secs' );
 
 #
 # testing null time
-$time = Audio::MPD::Common::Time->new( '126:0' );
+$time = Audio::MPD::Common::Time->new( time => '126:0' );
 is( $time->percent, '0.0', 'percent() defaults to 0' );
-
-exit;

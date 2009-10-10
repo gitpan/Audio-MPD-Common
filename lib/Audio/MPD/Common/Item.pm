@@ -1,25 +1,28 @@
-#
-# This file is part of Audio::MPD::Common
-# Copyright (c) 2007 Jerome Quelin, all rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself.
-#
-#
-
-package Audio::MPD::Common::Item;
-
+# 
+# This file is part of Audio-MPD-Common
+# 
+# This software is copyright (c) 2007 by Jerome Quelin.
+# 
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+# 
 use strict;
 use warnings;
+
+package Audio::MPD::Common::Item;
+our $VERSION = '1.092830';
+
+
+# ABSTRACT: a generic collection item
+
 use Audio::MPD::Common::Item::Directory;
 use Audio::MPD::Common::Item::Playlist;
 use Audio::MPD::Common::Item::Song;
 
-#our ($VERSION) = '$Rev: 5645 $' =~ /(\d+)/;
 
-#
-# constructor.
-#
+# -- constructor
+
+
 sub new {
     my ($pkg, %params) = @_;
 
@@ -34,67 +37,56 @@ sub new {
 
 1;
 
-__END__
 
+
+=pod
 
 =head1 NAME
 
 Audio::MPD::Common::Item - a generic collection item
 
+=head1 VERSION
+
+version 1.092830
 
 =head1 SYNOPSIS
 
     my $item = Audio::MPD::Common::Item->new( %params );
 
-
 =head1 DESCRIPTION
 
-C<Audio::MPD::Common::Item> is a virtual class representing a generic
+L<Audio::MPD::Common::Item> is a virtual class representing a generic
 item of mpd's collection. It can be either a song, a directory or a playlist.
 
 Depending on the params given to C<new>, it will create and return an
-C<Audio::MPD::Common::Item::Song>, an C<Audio::MPD::Common::Item::Directory>
-or an C<Audio::MPD::Common::Playlist> object. Currently, the
+L<Audio::MPD::Common::Item::Song>, an L<Audio::MPD::Common::Item::Directory>
+or an L<Audio::MPD::Common::Playlist> object. Currently, the
 discrimination is done on the existence of the C<file> key of C<%params>.
 
+=head1 METHODS
 
-=head1 PUBLIC METHODS
+=head2 my $item = Audio::MPD::Common::Item->new( %params );
 
-Note that the only sub worth it in this class is the constructor:
-
-=over 4
-
-=item new( key => val [, key => val [, ...] ] )
-
-Create and return either an C<Audio::MPD::Common::Item::Song>, an
-C<Audio::MPD::Common::Item::Directory> or an C<Audio::MPD::Common::Playlist>
+Create and return either an L<Audio::MPD::Common::Item::Song>, an
+L<Audio::MPD::Common::Item::Directory> or an L<Audio::MPD::Common::Playlist>
 object, depending on the existence of a key C<file>, C<directory> or
 C<playlist> (respectively).
 
-=back
-
-
-=head1 SEE ALSO
-
-=over 4
-
-=item L<Audio::MPD>
-
-=item L<POE::Component::Client::MPD>
-
-=back
 
 
 =head1 AUTHOR
 
-Jerome Quelin, C<< <jquelin at cpan.org> >>
+  Jerome Quelin
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2007 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut 
 
 
-=head1 COPYRIGHT & LICENSE
 
-Copyright (c) 2007 Jerome Quelin, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
+__END__

@@ -1,13 +1,12 @@
 Revision history for Audio-MPD-Common
 
-High-level changelog
-====================
+1.092830  2009-10-10 16:52:46 UTC
+ - migrated to moose
+ - warning: accessors are now read-only!
+ - new song accessor: name (bug reported by thorsten schwinn)
+ - migrated to dist::zilla (raaaaaar!)
 
-0.1.x  base classes imported from pococm
-
-
-Low-level changelog
-===================
+**
 
 0.1.4 Tue Jan  6 16:40:08 CET 2009
  - missing tag last_modified in amci:playlist (new in mpd 0.14)

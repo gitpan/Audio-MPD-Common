@@ -1,192 +1,159 @@
-#
-# This file is part of Audio::MPD::Common
-# Copyright (c) 2007 Jerome Quelin, all rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself.
-#
-#
+# 
+# This file is part of Audio-MPD-Common
+# 
+# This software is copyright (c) 2007 by Jerome Quelin.
+# 
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+# 
+use strict;
+use warnings;
 
 package Audio::MPD::Common::Status;
+our $VERSION = '1.092830';
 
-use warnings;
-use strict;
 
+# ABSTRACT: class representing MPD status
+
+use Moose;
+use Moose::Util::TypeConstraints;
 use Audio::MPD::Common::Time;
 
-use base qw[ Class::Accessor::Fast ];
-__PACKAGE__->mk_accessors
-    ( qw[ audio bitrate error playlist playlistlength random
-          repeat song songid state time volume updating_db xfade ] );
 
-#our ($VERSION) = '$Rev: 5865 $' =~ /(\d+)/;
+# -- private types
+
+subtype 'Int_0_100'
+      => as 'Int'
+      => where { $_ >= 0 && $_ <= 100 }
+      => message { "$_ is not between 0 and 100" };
+enum 'State' => qw{ play stop pause };
+coerce 'Audio::MPD::Common::Time'
+    => from 'Str'
+    => via { Audio::MPD::Common::Time->new(time=>$_) };
 
 
-#--
-# Constructor
+# -- public attributes
 
-#
-# my $status = Audio::MPD::Common::Status->new( \%kv )
-#
-# The constructor for the class Audio::MPD::Common::Status. %kv is
-# a cooked output of what MPD server returns to the status command.
-#
-sub new {
-    my ($class, $kv) = @_;
-    my %kv = %$kv;
-    $kv{time} = Audio::MPD::Common::Time->new( delete $kv{time} );
-    bless \%kv, $class;
-    return \%kv;
-}
+
+has audio          => ( is=>'ro', isa=>'Str' );
+has bitrate        => ( is=>'ro', isa=>'Int' );
+has error          => ( is=>'ro', isa=>'Str' );
+has playlist       => ( is=>'ro', isa=>'Int' );
+has playlistlength => ( is=>'ro', isa=>'Int' );
+has random         => ( is=>'ro', isa=>'Bool' );
+has repeat         => ( is=>'ro', isa=>'Bool' );
+has songid         => ( is=>'ro', isa=>'Int' );
+has song           => ( is=>'ro', isa=>'Int' );
+has state          => ( is=>'ro', isa=>'State' );
+has time           => ( is=>'ro', isa=>'Audio::MPD::Common::Time', coerce=>1 );
+has updating_db    => ( is=>'ro', isa=>'Int' );
+has volume         => ( is=>'ro', isa=>'Int_0_100' );
+has xfade          => ( is=>'ro', isa=>'Int' );
+
 
 1;
 
-__END__
 
+
+=pod
 
 =head1 NAME
 
 Audio::MPD::Common::Status - class representing MPD status
 
+=head1 VERSION
 
-=head1 SYNOPSIS
-
-    print $status->bitrate;
-
+version 1.092830
 
 =head1 DESCRIPTION
 
 The MPD server maintains some information on its current state. Those
 information can be queried with mpd modules. Some of those information
-are served to you as an C<Audio::MPD::Common::Status> object.
+are served to you as an L<Audio::MPD::Common::Status> object.
 
-Note that an C<Audio::MPD::Common::Status> object does B<not> update
-itself regularly, and thus should be used immediately.
+An L<Audio::MPD::Common::Status> object does B<not> update itself
+regularly, and thus should be used immediately.
 
-
-=head1 METHODS
-
-=head2 Constructor
-
-=over 4
-
-=item new( \%kv )
-
-The C<new()> method is the constructor for the C<Audio::MPD::Common::Status>
-class.
-
-Note: one should B<never> ever instantiate an C<Audio::MPD::Common::Status>
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Status>
 object directly - use the mpd modules instead.
 
-=back
+=head1 ATTRIBUTES
 
+=head2 $status->audio;
 
-=head2 Accessors
+A string with the sample rate of the song currently playing, number of
+bits of the output and number of channels (2 for stereo) - separated
+by a colon.
 
-Once created, one can access to the following members of the object:
-
-=over 4
-
-=item $status->audio()
-
-A string with the sample rate of the song currently playing, number of bits
-of the output and number of channels (2 for stereo) - separated by a colon.
-
-
-=item $status->bitrate()
+=head2 $status->bitrate;
 
 The instantaneous bitrate in kbps.
 
-
-=item $status->error()
+=head2 $status->error;
 
 May appear in special error cases, such as when disabling output.
 
+=head2 $status->playlist;
 
-=item $status->playlist()
+The playlist version number, that changes every time the playlist
+is updated.
 
-The playlist version number, that changes every time the playlist is updated.
-
-
-=item $status->playlistlength()
+=head2 $status->playlistlength;
 
 The number of songs in the playlist.
 
-
-=item $status->random()
+=head2 $status->random;
 
 Whether the playlist is read randomly or not.
 
-
-=item $status->repeat()
+=head2 $status->repeat;
 
 Whether the song is repeated or not.
 
-
-=item $status->song()
+=head2 $status->song;
 
 The offset of the song currently played in the playlist.
 
-
-=item $status->songid()
+=head2 $status->songid;
 
 The song id (MPD id) of the song currently played.
 
-
-=item $status->state()
+=head2 $status->state;
 
 The state of MPD server. Either C<play>, C<stop> or C<pause>.
 
+=head2 $status->time;
 
-=item $status->time()
-
-An C<Audio::MPD::Common::Time> object, representing the time elapsed /
+An L<Audio::MPD::Common::Time> object, representing the time elapsed /
 remainging and total. See the associated pod for more details.
 
-
-=item $status->updating_db()
+=head2 $status->updating_db;
 
 An integer, representing the current update job.
 
-
-=item $status->volume()
+=head2 $status->volume;
 
 The current MPD volume - an integer between 0 and 100.
 
-
-=item $status->xfade()
+=head2 $status->xfade;
 
 The crossfade in seconds.
 
 
-=back
-
-Please note that those accessors are read-only: changing a value will B<not>
-change the current settings of MPD server. Use the mpd modules to alter the
-settings.
-
-
-=head1 SEE ALSO
-
-=over 4
-
-=item L<Audio::MPD>
-
-=item L<POE::Component::Client::MPD>
-
-=back
-
 
 =head1 AUTHOR
 
-Jerome Quelin, C<< <jquelin at cpan.org> >>
+  Jerome Quelin
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2007 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut 
 
 
-=head1 COPYRIGHT & LICENSE
 
-Copyright (c) 2007 Jerome Quelin, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
+__END__

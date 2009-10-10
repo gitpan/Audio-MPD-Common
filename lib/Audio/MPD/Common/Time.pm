@@ -1,41 +1,60 @@
-#
-# This file is part of Audio::MPD::Common
-# Copyright (c) 2007 Jerome Quelin, all rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself.
-#
-#
+# 
+# This file is part of Audio-MPD-Common
+# 
+# This software is copyright (c) 2007 by Jerome Quelin.
+# 
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+# 
+use strict;
+use warnings;
 
 package Audio::MPD::Common::Time;
-
-use warnings;
-use strict;
-
-use base qw[ Class::Accessor::Fast ];
-__PACKAGE__->mk_accessors
-    ( qw[ percent sofar left total
-          sofar_secs sofar_mins seconds_sofar
-          total_secs total_mins seconds_total
-          left_secs  left_mins  seconds_left
-        ] );
-
-#our ($VERSION) = '$Rev$' =~ /(\d+)/;
+our $VERSION = '1.092830';
 
 
-#--
-# Constructor
+# ABSTRACT: class representing time of current song
 
-#
-# my $status = Audio::MPD::Common::Time->new( $time )
-#
-# The constructor for the class Audio::MPD::Common::Time. $time is
-# the time value (on the "time" line) of what the output MPD server
-# returns to the status command.
-#
-sub new {
-    my ($class, $time) = @_;
-    $time ||= '0:0';
+use Moose;
+
+
+# -- attributes
+
+
+has time => ( is=>'ro', isa=>'Str', default=>'0:0' );
+
+
+
+
+# _cooked_values contains all the computed values.
+has _cooked_values => (
+      traits     => [ 'Hash' ],
+      is         => 'ro',
+      isa        => 'HashRef',
+      lazy_build => 1,
+      handles    => {
+          percent       => [ get => 'percent'       ],
+          sofar         => [ get => 'sofar'         ],
+          left          => [ get => 'left'          ],
+          total         => [ get => 'total'         ],
+          sofar_secs    => [ get => 'sofar_secs'    ],
+          sofar_mins    => [ get => 'sofar_mins'    ],
+          seconds_sofar => [ get => 'seconds_sofar' ],
+          total_secs    => [ get => 'total_secs'    ],
+          total_mins    => [ get => 'total_mins'    ],
+          seconds_total => [ get => 'seconds_total' ],
+          left_secs     => [ get => 'left_secs'     ],
+          left_mins     => [ get => 'left_mins'     ],
+          seconds_left  => [ get => 'seconds_left'  ],
+      },
+);
+
+# -- builders
+
+sub _build__cooked_values {
+    my $self = shift;
+    my $time = $self->time;
+
     my ($seconds_sofar, $seconds_total) = split /:/, $time;
     my $seconds_left = $seconds_total - $seconds_sofar;
     my $percent      = $seconds_total ? 100*$seconds_sofar/$seconds_total : 0;
@@ -56,8 +75,7 @@ sub new {
     my $left = sprintf "%d:%02d", $left_mins, $left_secs;
 
 
-    # create object
-    my $self = {
+    return {
         # time elapsed in seconds
         seconds_sofar => $seconds_sofar,
         seconds_left  => $seconds_left,
@@ -77,110 +95,115 @@ sub new {
         left_secs  => $left_secs,
         left_mins  => $left_mins,
     };
-    bless $self, $class;
-    return $self;
 }
 
 
 1;
 
-__END__
+
+
+=pod
 
 =head1 NAME
 
 Audio::MPD::Common::Time - class representing time of current song
 
+=head1 VERSION
 
-=head1 SYNOPSIS
-
-    my $time = $status->time;
-    print $time->sofar;
-
+version 1.092830
 
 =head1 DESCRIPTION
 
-C<Audio::MPD::Common::Status> returns some time information with the C<time()>
-accessor. This information relates to the elapsed time of the current song,
-as well as the remaining and total time. This information is encapsulated
-in an C<Audio::MPD::Common::Time> object.
+L<Audio::MPD::Common::Status> returns some time information with the
+C<time()> accessor. This information relates to the elapsed time of the
+current song, as well as the remaining and total time. This information
+is encapsulated in an L<Audio::MPD::Common::Time> object.
 
-Note that an C<Audio::MPD::Common::Time> object does B<not> update itself
+An L<Audio::MPD::Common::Time> object does B<not> update itself
 regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Time>
+object directly - use the mpd modules instead.
+
+=head1 ATTRIBUTES
+
+=head2 $time->time;
+
+The time passed to the constructor, used to compute all others values
+(see methods). It is the time value (on the "time" line) of what the MPD
+server returns to the status command. Defaults to C<0:0>.
+
 
 
 =head1 METHODS
 
-=head2 Constructor
+=head2 my $str = $time->sofar;
 
-=over 4
+Return elapsed C<$time> (C<minutes:seconds> format).
 
-=item new( $time )
+=head2 my $str = $time->left;
 
-The C<new()> method is the constructor for the C<Audio::MPD::Common::Time>
-class.
+Return remaining C<$time> (C<minutes:seconds> format).
 
-Note: one should B<never> ever instantiate an C<Audio::MPD::Common::Time>
-object directly - use the mpd modules instead.
+=head2 my $str = $time->left;
 
-=back
+Return total C<$time> (C<minutes:seconds> format).
 
+=head2 my $percent = $time->percent;
 
-=head2 Accessors
+Return elapsed C<$time> (percentage, 1 digit).
 
-Once created, one can access the following members of the object:
+=head2 my $secs = $time->seconds_sofar;
 
-=over 4
+Return elapsed C<$time> in seconds.
 
-=item cooked values:
+=head2 my $secs = $time->seconds_left;
 
-The C<sofar()>, C<left()> and C<total()> methods return the according values
-under the form C<minutes:seconds>. Note the existence of a C<percent()>
-method returning a percentage complete. (one decimal)
+Return remaining C<$time> in seconds.
 
+=head2 my $secs = $time->seconds_total;
 
-=item values in seconds:
+Return total C<$time> in seconds.
 
-The C<seconds_sofar()>, C<seconds_left()> and C<seconds_total()> return the
-according values in seconds.
+=head2 my $mins = $time->sofar_mins;
 
+Return minutes part of elapsed C<$time>.
 
-=item detailled values:
+=head2 my $secs = $time->sofar_secs;
 
-If you want to cook your own value, then the following methods can help:
-C<sofar_secs()> and C<sofar_mins()> return the seconds and minutes elapsed.
-Same for C<left_secs()> and C<left_mins()> (time remaining), C<total_secs()>
-and C<total_mins()>. (total song length)
+Return seconds part of elapsed C<$time>.
 
+=head2 my $mins = $time->left_mins;
 
-=back
+Return minutes part of remaining C<$time>.
 
+=head2 my $secs = $time->left_secs;
 
-Please note that those accessors are read-only: changing a value will B<not>
-change the current settings of MPD server. Use the mpd modules to alter the
-settings.
+Return seconds part of remaining C<$time>.
 
+=head2 my $mins = $time->total_mins;
 
-=head1 SEE ALSO
+Return minutes part of total C<$time>.
 
-=over 4
+=head2 my $mins = $time->total_secs;
 
-=item L<Audio::MPD>
+Return seconds part of total C<$time>.
 
-=item L<POE::Component::Client::MPD>
-
-=back
 
 
 =head1 AUTHOR
 
-Jerome Quelin, C<< <jquelin at cpan.org> >>
+  Jerome Quelin
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2007 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut 
 
 
-=head1 COPYRIGHT & LICENSE
 
-Copyright (c) 2007 Jerome Quelin, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
+__END__

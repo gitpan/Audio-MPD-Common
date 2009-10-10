@@ -1,27 +1,33 @@
-#
-# This file is part of Audio::MPD::Common
-# Copyright (c) 2007 Jerome Quelin, all rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself.
-#
-#
+# 
+# This file is part of Audio-MPD-Common
+# 
+# This software is copyright (c) 2007 by Jerome Quelin.
+# 
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+# 
+use strict;
+use warnings;
 
 package Audio::MPD::Common;
+our $VERSION = '1.092830';
 
-use warnings;
-use strict;
-our $VERSION = '0.1.4';
+
+# ABSTRACT: common helper classes for mpd
 
 1;
 
-__END__
 
+
+=pod
 
 =head1 NAME
 
-Audio::MPD::Common - a bunch of common helper classes for mpd
+Audio::MPD::Common - common helper classes for mpd
 
+=head1 VERSION
+
+version 1.092830
 
 =head1 DESCRIPTION
 
@@ -41,48 +47,76 @@ following classes that you can query with perldoc:
 
 =over 4
 
-=item o L<Audio::MPD::Common::Item>
+=item * L<Audio::MPD::Common::Item>
 
-=item o L<Audio::MPD::Common::Item::Directory>
+=item * L<Audio::MPD::Common::Item::Directory>
 
-=item o L<Audio::MPD::Common::Item::Playlist>
+=item * L<Audio::MPD::Common::Item::Playlist>
 
-=item o L<Audio::MPD::Common::Item::Song>
+=item * L<Audio::MPD::Common::Item::Song>
 
-=item o L<Audio::MPD::Common::Stats>
+=item * L<Audio::MPD::Common::Stats>
 
-=item o L<Audio::MPD::Common::Status>
+=item * L<Audio::MPD::Common::Status>
 
-=item o L<Audio::MPD::Common::Time>
+=item * L<Audio::MPD::Common::Time>
 
-=back
-
+=back 
 
 Note that those modules should not be of any use outside the two mpd
 modules afore-mentioned.
 
+=head1 BUGS
+
+Please report any bugs or feature requests to C<bug-audio-mpd-common at
+rt.cpan.org>, or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Audio-MPD-Common>.
+I will be notified, and then you'll automatically be notified of
+progress on your bug as I make changes.
 
 =head1 SEE ALSO
 
+You may want to see the modules really accessing MPD:
+
 =over 4
 
-=item L<Audio::MPD>
+=item * L<Audio::MPD>
 
-=item L<POE::Component::Client::MPD>
+=item * L<POE::Component::Client::MPD>
 
-=back
+=back 
 
+You can also look for information on this module at:
+
+=over 4
+
+=item * AnnoCPAN: Annotated CPAN documentation
+
+L<http://annocpan.org/dist/Audio-MPD-Common>
+
+=item * CPAN Ratings
+
+L<http://cpanratings.perl.org/d/Audio-MPD-Common>
+
+=item * Open bugs
+
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Audio-MPD-Common>
+
+=back 
 
 =head1 AUTHOR
 
-Jerome Quelin, C<< <jquelin at cpan.org> >>
+  Jerome Quelin
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2007 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut 
 
 
-=head1 COPYRIGHT & LICENSE
 
-Copyright (c) 2007 Jerome Quelin, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
+__END__

@@ -1,135 +1,106 @@
-#
-# This file is part of Audio::MPD::Common
-# Copyright (c) 2007 Jerome Quelin, all rights reserved.
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the same terms as Perl itself.
-#
-#
+# 
+# This file is part of Audio-MPD-Common
+# 
+# This software is copyright (c) 2007 by Jerome Quelin.
+# 
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+# 
+use strict;
+use warnings;
 
 package Audio::MPD::Common::Stats;
+our $VERSION = '1.092830';
 
-use warnings;
-use strict;
 
-use base qw[ Class::Accessor::Fast ];
-__PACKAGE__->mk_accessors
-    ( qw[ artists albums songs uptime playtime db_playtime db_update ] );
+# ABSTRACT: class representing MPD stats
 
-#our ($VERSION) = '$Rev$' =~ /(\d+)/;
+use Moose;
+
+
+# -- public attributes
+
+
+has artists     => ( is=>'ro', isa=>'Int', required=>1 );
+has albums      => ( is=>'ro', isa=>'Int', required=>1 );
+has songs       => ( is=>'ro', isa=>'Int', required=>1 );
+has uptime      => ( is=>'ro', isa=>'Int', required=>1 );
+has playtime    => ( is=>'ro', isa=>'Int', required=>1 );
+has db_playtime => ( is=>'ro', isa=>'Int', required=>1 );
+has db_update   => ( is=>'ro', isa=>'Int', required=>1 );
+
 
 1;
 
-__END__
 
+
+=pod
 
 =head1 NAME
 
 Audio::MPD::Common::Stats - class representing MPD stats
 
+=head1 VERSION
 
-=head1 SYNOPSIS
-
-    print $stats->artists;
-
+version 1.092830
 
 =head1 DESCRIPTION
 
-The MPD server maintains some general information. Those information can be
-queried with the mpd modules. Some of those information are served to you as
-an C<Audio::MPD::Common::Status> object.
+The MPD server maintains some general information. Those information can
+be queried with the mpd modules. Some of those information are served to
+you as an L<Audio::MPD::Common::Status> object.
 
-Note that an C<Audio::MPD::Common::Stats> object does B<not> update itself
+An L<Audio::MPD::Common::Stats> object does B<not> update itself
 regularly, and thus should be used immediately.
 
-
-=head1 METHODS
-
-=head2 Constructor
-
-=over 4
-
-=item new( %kv )
-
-The C<new()> method is the constructor for the C<Audio::MPD::Common::Stats>
-class.
-
-Note: one should B<never> ever instantiate an C<Audio::MPD::Common::Stats>
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Stats>
 object directly - use the mpd modules instead.
 
-=back
+=head1 ATTRIBUTES
 
-
-=head2 Accessors
-
-Once created, one can access to the following members of the object:
-
-=over 4
-
-=item $stats->artists()
+=head2 $stats->artists;
 
 Number of artists in the music database.
 
-
-=item $stats->albums()
+=head2 $stats->albums;
 
 Number of albums in the music database.
 
-
-=item $stats->songs()
+=head2 $stats->songs;
 
 Number of songs in the music database.
 
-
-=item $stats->uptime()
+=head2 $stats->uptime;
 
 Daemon uptime (time since last startup) in seconds.
 
-
-=item $stats->playtime()
+=head2 $stats->playtime;
 
 Time length of music played.
 
-
-=item $stats->db_playtime()
+=head2 $stats->db_playtime;
 
 Sum of all song times in the music database.
 
-
-=item $stats->db_update()
+=head2 $stats->db_update;
 
 Last database update in UNIX time.
 
 
-=back
-
-
-Please note that those accessors are read-only: changing a value will B<not>
-change the current settings of MPD server. Use the mpd modules to alter the
-settings.
-
-
-=head1 SEE ALSO
-
-=over 4
-
-=item L<Audio::MPD>
-
-=item L<POE::Component::Client::MPD>
-
-=back
-
 
 =head1 AUTHOR
 
-Jerome Quelin, C<< <jquelin at cpan.org> >>
+  Jerome Quelin
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2007 by Jerome Quelin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut 
 
 
-=head1 COPYRIGHT & LICENSE
 
-Copyright (c) 2007 Jerome Quelin, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
+__END__
