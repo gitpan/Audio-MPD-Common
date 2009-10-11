@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'Audio::MPD::Common',
   AUTHOR    => 'Jerome\ Quelin',
   ABSTRACT  => 'common\ helper\ classes\ for\ mpd',
-  VERSION   => '1.092830',
+  VERSION   => '1.092840',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {

@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
-our $VERSION = '1.092830';
+our $VERSION = '1.092840';
 
 
 # ABSTRACT: a playlist object
@@ -23,8 +23,8 @@ use base qw{ Audio::MPD::Common::Item };
 # -- public attributes
 
 
-has last_modified => ( is=>'ro', isa=>'Str', required=>0 );
-has playlist      => ( is=>'ro', isa=>'Str', required=>1 );
+has last_modified => ( is=>'rw', isa=>'Str', required=>0 );
+has playlist      => ( is=>'rw', isa=>'Str', required=>1 );
 
 1;
 
@@ -38,7 +38,7 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 1.092830
+version 1.092840
 
 =head1 DESCRIPTION
 

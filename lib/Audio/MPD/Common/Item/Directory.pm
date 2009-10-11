@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Directory;
-our $VERSION = '1.092830';
+our $VERSION = '1.092840';
 
 
 # ABSTRACT: a directory object
@@ -23,7 +23,7 @@ use base qw{ Audio::MPD::Common::Item };
 # -- public attributes
 
 
-has directory => ( is=>'ro', isa=>'Str', required=>1 );
+has directory => ( is=>'rw', isa=>'Str', required=>1 );
 
 1;
 
@@ -37,7 +37,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 1.092830
+version 1.092840
 
 =head1 DESCRIPTION
 

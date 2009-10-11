@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-our $VERSION = '1.092830';
+our $VERSION = '1.092840';
 
 
 # ABSTRACT: a song object with some audio tags
@@ -27,17 +27,17 @@ Readonly my $SEP => ' = ';
 # -- public attributes
 
 
-has album  => ( is=>'ro', isa=>'Str' );
-has artist => ( is=>'ro', isa=>'Str' );
-has date   => ( is=>'ro', isa=>'Int' );
-has file   => ( is=>'ro', isa=>'Str', required=>1 );
-has genre  => ( is=>'ro', isa=>'Str' );
-has id     => ( is=>'ro', isa=>'Int' );
-has name   => ( is=>'ro', isa=>'Str' );
-has pos    => ( is=>'ro', isa=>'Int' );
-has title  => ( is=>'ro', isa=>'Str' );
-has track  => ( is=>'ro', isa=>'Int' );
-has time   => ( is=>'ro', isa=>'Int' );
+has album  => ( is=>'rw', isa=>'Str' );
+has artist => ( is=>'rw', isa=>'Str' );
+has date   => ( is=>'rw', isa=>'Int' );
+has file   => ( is=>'rw', isa=>'Str', required=>1 );
+has genre  => ( is=>'rw', isa=>'Str' );
+has id     => ( is=>'rw', isa=>'Int' );
+has name   => ( is=>'rw', isa=>'Str' );
+has pos    => ( is=>'rw', isa=>'Int' );
+has title  => ( is=>'rw', isa=>'Str' );
+has track  => ( is=>'rw', isa=>'Int' );
+has time   => ( is=>'rw', isa=>'Int' );
 
 
 # -- public methods
@@ -69,7 +69,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.092830
+version 1.092840
 
 =head1 DESCRIPTION
 
