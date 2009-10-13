@@ -21,7 +21,7 @@ my $build = Module::Build->new(
     "overload" => '0',
     "Moose::Util::TypeConstraints" => '0',
     "Readonly" => '0',
-    "Moose" => '0',
+    "Moose" => '0.92',
   },
   script_files => [ qw() ],
 );

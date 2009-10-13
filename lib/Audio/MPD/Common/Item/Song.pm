@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-our $VERSION = '1.092840';
+our $VERSION = '1.092860';
 
 
 # ABSTRACT: a song object with some audio tags
@@ -36,7 +36,7 @@ has id     => ( is=>'rw', isa=>'Int' );
 has name   => ( is=>'rw', isa=>'Str' );
 has pos    => ( is=>'rw', isa=>'Int' );
 has title  => ( is=>'rw', isa=>'Str' );
-has track  => ( is=>'rw', isa=>'Int' );
+has track  => ( is=>'rw', isa=>'Str' );
 has time   => ( is=>'rw', isa=>'Int' );
 
 
@@ -69,7 +69,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.092840
+version 1.092860
 
 =head1 DESCRIPTION
 

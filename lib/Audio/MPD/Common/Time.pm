@@ -10,12 +10,12 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Time;
-our $VERSION = '1.092840';
+our $VERSION = '1.092860';
 
 
 # ABSTRACT: class representing time of current song
 
-use Moose;
+use Moose 0.92; # need hash trait
 
 
 # -- attributes
@@ -110,7 +110,7 @@ Audio::MPD::Common::Time - class representing time of current song
 
 =head1 VERSION
 
-version 1.092840
+version 1.092860
 
 =head1 DESCRIPTION
 
