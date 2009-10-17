@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-our $VERSION = '1.092860';
+our $VERSION = '1.092900';
 
 
 # ABSTRACT: a song object with some audio tags
@@ -30,6 +30,7 @@ Readonly my $SEP => ' = ';
 has album  => ( is=>'rw', isa=>'Str' );
 has artist => ( is=>'rw', isa=>'Str' );
 has date   => ( is=>'rw', isa=>'Int' );
+has disc   => ( is=>'rw', isa=>'Str' );
 has file   => ( is=>'rw', isa=>'Str', required=>1 );
 has genre  => ( is=>'rw', isa=>'Str' );
 has id     => ( is=>'rw', isa=>'Int' );
@@ -69,7 +70,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.092860
+version 1.092900
 
 =head1 DESCRIPTION
 
@@ -93,6 +94,10 @@ Artist of the song.
 =head2 $song->date;
 
 Last modification date of the song.
+
+=head2 $song->disc;
+
+Disc number of the album. This is a string to allow tags such as C<1/2>.
 
 =head2 $song->file;
 

@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Directory;
-our $VERSION = '1.092860';
+our $VERSION = '1.092900';
 
 
 # ABSTRACT: a directory object
@@ -37,7 +37,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 1.092860
+version 1.092900
 
 =head1 DESCRIPTION
 

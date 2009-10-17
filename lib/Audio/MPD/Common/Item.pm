@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item;
-our $VERSION = '1.092860';
+our $VERSION = '1.092900';
 
 
 # ABSTRACT: a generic collection item
@@ -47,7 +47,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 1.092860
+version 1.092900
 
 =head1 SYNOPSIS
 

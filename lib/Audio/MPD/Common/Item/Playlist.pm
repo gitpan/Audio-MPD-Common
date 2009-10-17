@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
-our $VERSION = '1.092860';
+our $VERSION = '1.092900';
 
 
 # ABSTRACT: a playlist object
@@ -38,7 +38,7 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 1.092860
+version 1.092900
 
 =head1 DESCRIPTION
 
