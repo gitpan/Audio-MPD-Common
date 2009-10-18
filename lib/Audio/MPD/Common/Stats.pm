@@ -6,11 +6,12 @@
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
 # 
+use 5.008;
 use strict;
 use warnings;
 
 package Audio::MPD::Common::Stats;
-our $VERSION = '1.092900';
+our $VERSION = '1.092910';
 
 
 # ABSTRACT: class representing MPD stats
@@ -42,7 +43,7 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 1.092900
+version 1.092910
 
 =head1 DESCRIPTION
 

@@ -13,6 +13,7 @@ my $build = Module::Build->new(
 "Jerome\ Quelin",
   ],
   requires      => {
+    "perl" => '5.008',
     "base" => '0',
     "Test::More" => '0',
     "English" => '0',
