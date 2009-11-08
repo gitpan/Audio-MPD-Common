@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Status;
-our $VERSION = '1.092910';
+our $VERSION = '1.093120';
 
 
 # ABSTRACT: class representing MPD status
@@ -64,7 +64,7 @@ Audio::MPD::Common::Status - class representing MPD status
 
 =head1 VERSION
 
-version 1.092910
+version 1.093120
 
 =head1 DESCRIPTION
 

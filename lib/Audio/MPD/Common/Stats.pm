@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Stats;
-our $VERSION = '1.092910';
+our $VERSION = '1.093120';
 
 
 # ABSTRACT: class representing MPD stats
@@ -43,7 +43,7 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 1.092910
+version 1.093120
 
 =head1 DESCRIPTION
 

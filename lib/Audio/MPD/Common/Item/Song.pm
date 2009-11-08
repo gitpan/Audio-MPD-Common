@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-our $VERSION = '1.092910';
+our $VERSION = '1.093120';
 
 
 # ABSTRACT: a song object with some audio tags
@@ -30,7 +30,7 @@ Readonly my $SEP => ' = ';
 
 has album  => ( is=>'rw', isa=>'Str' );
 has artist => ( is=>'rw', isa=>'Str' );
-has date   => ( is=>'rw', isa=>'Int' );
+has date   => ( is=>'rw', isa=>'Str' );
 has disc   => ( is=>'rw', isa=>'Str' );
 has file   => ( is=>'rw', isa=>'Str', required=>1 );
 has genre  => ( is=>'rw', isa=>'Str' );
@@ -71,7 +71,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.092910
+version 1.093120
 
 =head1 DESCRIPTION
 
