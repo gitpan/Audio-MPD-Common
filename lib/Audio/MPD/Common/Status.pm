@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Status;
-our $VERSION = '1.093120';
+our $VERSION = '1.093170';
 
 
 # ABSTRACT: class representing MPD status
@@ -23,10 +23,6 @@ use Audio::MPD::Common::Time;
 
 # -- private types
 
-subtype 'Int_0_100'
-      => as 'Int'
-      => where { $_ >= 0 && $_ <= 100 }
-      => message { "$_ is not between 0 and 100" };
 enum 'State' => qw{ play stop pause };
 coerce 'Audio::MPD::Common::Time'
     => from 'Str'
@@ -48,12 +44,11 @@ has song           => ( is=>'ro', isa=>'Int' );
 has state          => ( is=>'ro', isa=>'State' );
 has time           => ( is=>'ro', isa=>'Audio::MPD::Common::Time', coerce=>1 );
 has updating_db    => ( is=>'ro', isa=>'Int' );
-has volume         => ( is=>'ro', isa=>'Int_0_100' );
+has volume         => ( is=>'ro', isa=>'Int' );
 has xfade          => ( is=>'ro', isa=>'Int' );
 
 
 1;
-
 
 
 =pod
@@ -64,19 +59,7 @@ Audio::MPD::Common::Status - class representing MPD status
 
 =head1 VERSION
 
-version 1.093120
-
-=head1 DESCRIPTION
-
-The MPD server maintains some information on its current state. Those
-information can be queried with mpd modules. Some of those information
-are served to you as an L<Audio::MPD::Common::Status> object.
-
-An L<Audio::MPD::Common::Status> object does B<not> update itself
-regularly, and thus should be used immediately.
-
-Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Status>
-object directly - use the mpd modules instead.
+version 1.093170
 
 =head1 ATTRIBUTES
 
@@ -140,11 +123,25 @@ The current MPD volume - an integer between 0 and 100.
 
 The crossfade in seconds.
 
+=cut
 
+=pod
+
+=head1 DESCRIPTION
+
+The MPD server maintains some information on its current state. Those
+information can be queried with mpd modules. Some of those information
+are served to you as an L<Audio::MPD::Common::Status> object.
+
+An L<Audio::MPD::Common::Status> object does B<not> update itself
+regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Status>
+object directly - use the mpd modules instead.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -153,8 +150,7 @@ This software is copyright (c) 2007 by Jerome Quelin.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
 
 __END__

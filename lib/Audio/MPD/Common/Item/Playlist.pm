@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
-our $VERSION = '1.093120';
+our $VERSION = '1.093170';
 
 
 # ABSTRACT: a playlist object
@@ -30,7 +30,6 @@ has playlist      => ( is=>'rw', isa=>'Str', required=>1 );
 1;
 
 
-
 =pod
 
 =head1 NAME
@@ -39,15 +38,7 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 1.093120
-
-=head1 DESCRIPTION
-
-L<Audio::MPD::Common::Item::Playlist> is more a placeholder with some
-attributes.
-
-The constructor should only be called by L<Audio::MPD::Common::Item>'s
-constructor.
+version 1.093170
 
 =head1 ATTRIBUTES
 
@@ -59,11 +50,21 @@ Last modification date.
 
 Path to the playlist file.
 
+=cut
 
+=pod
+
+=head1 DESCRIPTION
+
+L<Audio::MPD::Common::Item::Playlist> is more a placeholder with some
+attributes.
+
+The constructor should only be called by L<Audio::MPD::Common::Item>'s
+constructor.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -72,8 +73,7 @@ This software is copyright (c) 2007 by Jerome Quelin.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
 
 __END__

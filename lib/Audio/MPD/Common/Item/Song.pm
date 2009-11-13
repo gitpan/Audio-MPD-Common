@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-our $VERSION = '1.093120';
+our $VERSION = '1.093170';
 
 
 # ABSTRACT: a song object with some audio tags
@@ -62,7 +62,6 @@ sub as_string {
 1;
 
 
-
 =pod
 
 =head1 NAME
@@ -71,16 +70,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.093120
-
-=head1 DESCRIPTION
-
-L<Audio::MPD::Common::Item::Song> is more a placeholder with some
-attributes. Those attributes are taken from the song tags, so some of
-them can be empty depending on the file.
-
-The constructor should only be called by L<Audio::MPD::Common::Item>'s
-constructor.
+version 1.093170
 
 =head1 ATTRIBUTES
 
@@ -132,7 +122,9 @@ Track number of the song.
 
 Length of the song in seconds.
 
+=cut
 
+=pod
 
 =head1 METHODS
 
@@ -150,18 +142,29 @@ Return a string representing $song. This string will be:
 
 =item or "file"
 
-=back 
+=back
 
 (in this order), depending on the existing tags of the song. The last
 possibility always exist of course, since it's a path.
 
 This method is also used to automatically stringify the C<$song>.
 
+=cut
 
+=pod
+
+=head1 DESCRIPTION
+
+L<Audio::MPD::Common::Item::Song> is more a placeholder with some
+attributes. Those attributes are taken from the song tags, so some of
+them can be empty depending on the file.
+
+The constructor should only be called by L<Audio::MPD::Common::Item>'s
+constructor.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -170,8 +173,7 @@ This software is copyright (c) 2007 by Jerome Quelin.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
 
 __END__

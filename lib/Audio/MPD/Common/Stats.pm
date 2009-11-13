@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Stats;
-our $VERSION = '1.093120';
+our $VERSION = '1.093170';
 
 
 # ABSTRACT: class representing MPD stats
@@ -34,7 +34,6 @@ has db_update   => ( is=>'ro', isa=>'Int', required=>1 );
 1;
 
 
-
 =pod
 
 =head1 NAME
@@ -43,19 +42,7 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 1.093120
-
-=head1 DESCRIPTION
-
-The MPD server maintains some general information. Those information can
-be queried with the mpd modules. Some of those information are served to
-you as an L<Audio::MPD::Common::Status> object.
-
-An L<Audio::MPD::Common::Stats> object does B<not> update itself
-regularly, and thus should be used immediately.
-
-Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Stats>
-object directly - use the mpd modules instead.
+version 1.093170
 
 =head1 ATTRIBUTES
 
@@ -87,11 +74,25 @@ Sum of all song times in the music database.
 
 Last database update in UNIX time.
 
+=cut
 
+=pod
+
+=head1 DESCRIPTION
+
+The MPD server maintains some general information. Those information can
+be queried with the mpd modules. Some of those information are served to
+you as an L<Audio::MPD::Common::Status> object.
+
+An L<Audio::MPD::Common::Stats> object does B<not> update itself
+regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Stats>
+object directly - use the mpd modules instead.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -100,8 +101,7 @@ This software is copyright (c) 2007 by Jerome Quelin.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
 
 __END__

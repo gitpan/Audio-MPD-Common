@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Time;
-our $VERSION = '1.093120';
+our $VERSION = '1.093170';
 
 
 # ABSTRACT: class representing time of current song
@@ -102,7 +102,6 @@ sub _build__cooked_values {
 1;
 
 
-
 =pod
 
 =head1 NAME
@@ -111,20 +110,7 @@ Audio::MPD::Common::Time - class representing time of current song
 
 =head1 VERSION
 
-version 1.093120
-
-=head1 DESCRIPTION
-
-L<Audio::MPD::Common::Status> returns some time information with the
-C<time()> accessor. This information relates to the elapsed time of the
-current song, as well as the remaining and total time. This information
-is encapsulated in an L<Audio::MPD::Common::Time> object.
-
-An L<Audio::MPD::Common::Time> object does B<not> update itself
-regularly, and thus should be used immediately.
-
-Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Time>
-object directly - use the mpd modules instead.
+version 1.093170
 
 =head1 ATTRIBUTES
 
@@ -134,7 +120,9 @@ The time passed to the constructor, used to compute all others values
 (see methods). It is the time value (on the "time" line) of what the MPD
 server returns to the status command. Defaults to C<0:0>.
 
+=cut
 
+=pod
 
 =head1 METHODS
 
@@ -190,11 +178,26 @@ Return minutes part of total C<$time>.
 
 Return seconds part of total C<$time>.
 
+=cut
 
+=pod
+
+=head1 DESCRIPTION
+
+L<Audio::MPD::Common::Status> returns some time information with the
+C<time()> accessor. This information relates to the elapsed time of the
+current song, as well as the remaining and total time. This information
+is encapsulated in an L<Audio::MPD::Common::Time> object.
+
+An L<Audio::MPD::Common::Time> object does B<not> update itself
+regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Time>
+object directly - use the mpd modules instead.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -203,8 +206,7 @@ This software is copyright (c) 2007 by Jerome Quelin.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
 
 __END__

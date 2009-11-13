@@ -11,13 +11,12 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common;
-our $VERSION = '1.093120';
+our $VERSION = '1.093170';
 
 
 # ABSTRACT: common helper classes for mpd
 
 1;
-
 
 
 =pod
@@ -28,7 +27,7 @@ Audio::MPD::Common - common helper classes for mpd
 
 =head1 VERSION
 
-version 1.093120
+version 1.093170
 
 =head1 DESCRIPTION
 
@@ -62,7 +61,7 @@ following classes that you can query with perldoc:
 
 =item * L<Audio::MPD::Common::Time>
 
-=back 
+=back
 
 Note that those modules should not be of any use outside the two mpd
 modules afore-mentioned.
@@ -85,7 +84,7 @@ You may want to see the modules really accessing MPD:
 
 =item * L<POE::Component::Client::MPD>
 
-=back 
+=back
 
 You can also look for information on this module at:
 
@@ -103,11 +102,11 @@ L<http://cpanratings.perl.org/d/Audio-MPD-Common>
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Audio-MPD-Common>
 
-=back 
+=back
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -116,8 +115,7 @@ This software is copyright (c) 2007 by Jerome Quelin.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
 
 __END__
