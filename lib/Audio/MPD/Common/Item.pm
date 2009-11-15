@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: a generic collection item
@@ -47,20 +47,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 1.093170
-
-=head1 METHODS
-
-=head2 my $item = Audio::MPD::Common::Item->new( %params );
-
-Create and return either an L<Audio::MPD::Common::Item::Song>, an
-L<Audio::MPD::Common::Item::Directory> or an L<Audio::MPD::Common::Playlist>
-object, depending on the existence of a key C<file>, C<directory> or
-C<playlist> (respectively).
-
-=cut
-
-=pod
+version 1.093190
 
 =head1 SYNOPSIS
 
@@ -76,9 +63,18 @@ L<Audio::MPD::Common::Item::Song>, an L<Audio::MPD::Common::Item::Directory>
 or an L<Audio::MPD::Common::Playlist> object. Currently, the
 discrimination is done on the existence of the C<file> key of C<%params>.
 
+=head1 METHODS
+
+=head2 my $item = Audio::MPD::Common::Item->new( %params );
+
+Create and return either an L<Audio::MPD::Common::Item::Song>, an
+L<Audio::MPD::Common::Item::Directory> or an L<Audio::MPD::Common::Playlist>
+object, depending on the existence of a key C<file>, C<directory> or
+C<playlist> (respectively).
+
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

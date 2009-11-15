@@ -11,24 +11,26 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Stats;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: class representing MPD stats
 
 use Moose;
+use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw{ Int };
 
 
 # -- public attributes
 
 
-has artists     => ( is=>'ro', isa=>'Int', required=>1 );
-has albums      => ( is=>'ro', isa=>'Int', required=>1 );
-has songs       => ( is=>'ro', isa=>'Int', required=>1 );
-has uptime      => ( is=>'ro', isa=>'Int', required=>1 );
-has playtime    => ( is=>'ro', isa=>'Int', required=>1 );
-has db_playtime => ( is=>'ro', isa=>'Int', required=>1 );
-has db_update   => ( is=>'ro', isa=>'Int', required=>1 );
+has artists     => ( ro, isa=>Int, required );
+has albums      => ( ro, isa=>Int, required );
+has songs       => ( ro, isa=>Int, required );
+has uptime      => ( ro, isa=>Int, required );
+has playtime    => ( ro, isa=>Int, required );
+has db_playtime => ( ro, isa=>Int, required );
+has db_update   => ( ro, isa=>Int, required );
 
 
 1;
@@ -42,7 +44,19 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 1.093170
+version 1.093190
+
+=head1 DESCRIPTION
+
+The MPD server maintains some general information. Those information can
+be queried with the mpd modules. Some of those information are served to
+you as an L<Audio::MPD::Common::Status> object.
+
+An L<Audio::MPD::Common::Stats> object does B<not> update itself
+regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Stats>
+object directly - use the mpd modules instead.
 
 =head1 ATTRIBUTES
 
@@ -74,25 +88,9 @@ Sum of all song times in the music database.
 
 Last database update in UNIX time.
 
-=cut
-
-=pod
-
-=head1 DESCRIPTION
-
-The MPD server maintains some general information. Those information can
-be queried with the mpd modules. Some of those information are served to
-you as an L<Audio::MPD::Common::Status> object.
-
-An L<Audio::MPD::Common::Stats> object does B<not> update itself
-regularly, and thus should be used immediately.
-
-Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Stats>
-object directly - use the mpd modules instead.
-
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

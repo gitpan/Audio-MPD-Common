@@ -11,41 +11,36 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Status;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: class representing MPD status
 
 use Moose;
-use Moose::Util::TypeConstraints;
+use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw{ Bool Int Str };
+
 use Audio::MPD::Common::Time;
-
-
-# -- private types
-
-enum 'State' => qw{ play stop pause };
-coerce 'Audio::MPD::Common::Time'
-    => from 'Str'
-    => via { Audio::MPD::Common::Time->new(time=>$_) };
+use Audio::MPD::Common::Types;
 
 
 # -- public attributes
 
 
-has audio          => ( is=>'ro', isa=>'Str' );
-has bitrate        => ( is=>'ro', isa=>'Int' );
-has error          => ( is=>'ro', isa=>'Str' );
-has playlist       => ( is=>'ro', isa=>'Int' );
-has playlistlength => ( is=>'ro', isa=>'Int' );
-has random         => ( is=>'ro', isa=>'Bool' );
-has repeat         => ( is=>'ro', isa=>'Bool' );
-has songid         => ( is=>'ro', isa=>'Int' );
-has song           => ( is=>'ro', isa=>'Int' );
-has state          => ( is=>'ro', isa=>'State' );
-has time           => ( is=>'ro', isa=>'Audio::MPD::Common::Time', coerce=>1 );
-has updating_db    => ( is=>'ro', isa=>'Int' );
-has volume         => ( is=>'ro', isa=>'Int' );
-has xfade          => ( is=>'ro', isa=>'Int' );
+has audio          => ( ro, isa=>Str  );
+has bitrate        => ( ro, isa=>Int  );
+has error          => ( ro, isa=>Str  );
+has playlist       => ( ro, isa=>Int  );
+has playlistlength => ( ro, isa=>Int  );
+has random         => ( ro, isa=>Bool );
+has repeat         => ( ro, isa=>Bool );
+has songid         => ( ro, isa=>Int  );
+has song           => ( ro, isa=>Int  );
+has state          => ( ro, isa=>'State' );
+has time           => ( ro, isa=>'Audio::MPD::Common::Time', coerce );
+has updating_db    => ( ro, isa=>Int  );
+has volume         => ( ro, isa=>Int  );
+has xfade          => ( ro, isa=>Int  );
 
 
 1;
@@ -59,7 +54,19 @@ Audio::MPD::Common::Status - class representing MPD status
 
 =head1 VERSION
 
-version 1.093170
+version 1.093190
+
+=head1 DESCRIPTION
+
+The MPD server maintains some information on its current state. Those
+information can be queried with mpd modules. Some of those information
+are served to you as an L<Audio::MPD::Common::Status> object.
+
+An L<Audio::MPD::Common::Status> object does B<not> update itself
+regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Status>
+object directly - use the mpd modules instead.
 
 =head1 ATTRIBUTES
 
@@ -123,25 +130,9 @@ The current MPD volume - an integer between 0 and 100.
 
 The crossfade in seconds.
 
-=cut
-
-=pod
-
-=head1 DESCRIPTION
-
-The MPD server maintains some information on its current state. Those
-information can be queried with mpd modules. Some of those information
-are served to you as an L<Audio::MPD::Common::Status> object.
-
-An L<Audio::MPD::Common::Status> object does B<not> update itself
-regularly, and thus should be used immediately.
-
-Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Status>
-object directly - use the mpd modules instead.
-
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

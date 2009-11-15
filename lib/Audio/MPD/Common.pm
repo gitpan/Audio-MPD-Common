@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: common helper classes for mpd
@@ -27,7 +27,7 @@ Audio::MPD::Common - common helper classes for mpd
 
 =head1 VERSION
 
-version 1.093170
+version 1.093190
 
 =head1 DESCRIPTION
 
@@ -61,34 +61,30 @@ following classes that you can query with perldoc:
 
 =item * L<Audio::MPD::Common::Time>
 
+=item * L<Audio::MPD::Common::Types>
+
 =back
 
 Note that those modules should not be of any use outside the two mpd
 modules afore-mentioned.
 
-=head1 BUGS
-
-Please report any bugs or feature requests to C<bug-audio-mpd-common at
-rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Audio-MPD-Common>.
-I will be notified, and then you'll automatically be notified of
-progress on your bug as I make changes.
-
 =head1 SEE ALSO
 
-You may want to see the modules really accessing MPD:
+You can look for information on this module at:
 
 =over 4
 
-=item * L<Audio::MPD>
+=item * Search CPAN
 
-=item * L<POE::Component::Client::MPD>
+L<http://search.cpan.org/dist/Audio-MPD-Common>
 
-=back
+=item * See open / report bugs
 
-You can also look for information on this module at:
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Audio-MPD-Common>
 
-=over 4
+=item * Git repository
+
+L<http://github.com/jquelin/audio-mpd-common.git>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -98,15 +94,21 @@ L<http://annocpan.org/dist/Audio-MPD-Common>
 
 L<http://cpanratings.perl.org/d/Audio-MPD-Common>
 
-=item * Open bugs
+=back
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Audio-MPD-Common>
+You may want to look at the modules really accessing MPD:
+
+=over 4
+
+=item * L<Audio::MPD>
+
+=item * L<POE::Component::Client::MPD>
 
 =back
 
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

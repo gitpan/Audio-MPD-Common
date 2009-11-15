@@ -11,12 +11,14 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: a song object with some audio tags
 
 use Moose;
+use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw{ Int Str };
 use Readonly;
 
 use base qw{ Audio::MPD::Common::Item };
@@ -28,18 +30,18 @@ Readonly my $SEP => ' = ';
 # -- public attributes
 
 
-has album  => ( is=>'rw', isa=>'Str' );
-has artist => ( is=>'rw', isa=>'Str' );
-has date   => ( is=>'rw', isa=>'Str' );
-has disc   => ( is=>'rw', isa=>'Str' );
-has file   => ( is=>'rw', isa=>'Str', required=>1 );
-has genre  => ( is=>'rw', isa=>'Str' );
-has id     => ( is=>'rw', isa=>'Int' );
-has name   => ( is=>'rw', isa=>'Str' );
-has pos    => ( is=>'rw', isa=>'Int' );
-has title  => ( is=>'rw', isa=>'Str' );
-has track  => ( is=>'rw', isa=>'Str' );
-has time   => ( is=>'rw', isa=>'Int' );
+has album  => ( rw, isa=>Str );
+has artist => ( rw, isa=>Str );
+has date   => ( rw, isa=>Str );
+has disc   => ( rw, isa=>Str );
+has file   => ( rw, isa=>Str, required );
+has genre  => ( rw, isa=>Str );
+has id     => ( rw, isa=>Int );
+has name   => ( rw, isa=>Str );
+has pos    => ( rw, isa=>Int );
+has title  => ( rw, isa=>Str );
+has track  => ( rw, isa=>Str );
+has time   => ( rw, isa=>Int );
 
 
 # -- public methods
@@ -70,7 +72,16 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.093170
+version 1.093190
+
+=head1 DESCRIPTION
+
+L<Audio::MPD::Common::Item::Song> is more a placeholder with some
+attributes. Those attributes are taken from the song tags, so some of
+them can be empty depending on the file.
+
+The constructor should only be called by L<Audio::MPD::Common::Item>'s
+constructor.
 
 =head1 ATTRIBUTES
 
@@ -122,10 +133,6 @@ Track number of the song.
 
 Length of the song in seconds.
 
-=cut
-
-=pod
-
 =head1 METHODS
 
 =head2 my $str = $song->as_string;
@@ -149,22 +156,9 @@ possibility always exist of course, since it's a path.
 
 This method is also used to automatically stringify the C<$song>.
 
-=cut
-
-=pod
-
-=head1 DESCRIPTION
-
-L<Audio::MPD::Common::Item::Song> is more a placeholder with some
-attributes. Those attributes are taken from the song tags, so some of
-them can be empty depending on the file.
-
-The constructor should only be called by L<Audio::MPD::Common::Item>'s
-constructor.
-
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

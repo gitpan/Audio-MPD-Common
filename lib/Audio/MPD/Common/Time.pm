@@ -11,7 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Time;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: class representing time of current song
@@ -110,7 +110,20 @@ Audio::MPD::Common::Time - class representing time of current song
 
 =head1 VERSION
 
-version 1.093170
+version 1.093190
+
+=head1 DESCRIPTION
+
+L<Audio::MPD::Common::Status> returns some time information with the
+C<time()> accessor. This information relates to the elapsed time of the
+current song, as well as the remaining and total time. This information
+is encapsulated in an L<Audio::MPD::Common::Time> object.
+
+An L<Audio::MPD::Common::Time> object does B<not> update itself
+regularly, and thus should be used immediately.
+
+Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Time>
+object directly - use the mpd modules instead.
 
 =head1 ATTRIBUTES
 
@@ -119,10 +132,6 @@ version 1.093170
 The time passed to the constructor, used to compute all others values
 (see methods). It is the time value (on the "time" line) of what the MPD
 server returns to the status command. Defaults to C<0:0>.
-
-=cut
-
-=pod
 
 =head1 METHODS
 
@@ -178,26 +187,9 @@ Return minutes part of total C<$time>.
 
 Return seconds part of total C<$time>.
 
-=cut
-
-=pod
-
-=head1 DESCRIPTION
-
-L<Audio::MPD::Common::Status> returns some time information with the
-C<time()> accessor. This information relates to the elapsed time of the
-current song, as well as the remaining and total time. This information
-is encapsulated in an L<Audio::MPD::Common::Time> object.
-
-An L<Audio::MPD::Common::Time> object does B<not> update itself
-regularly, and thus should be used immediately.
-
-Note: one should B<never> ever instantiate an L<Audio::MPD::Common::Time>
-object directly - use the mpd modules instead.
-
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

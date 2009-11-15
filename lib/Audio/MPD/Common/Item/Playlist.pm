@@ -11,12 +11,14 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: a playlist object
 
 use Moose;
+use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw{ Str };
 
 use base qw{ Audio::MPD::Common::Item };
 
@@ -24,8 +26,8 @@ use base qw{ Audio::MPD::Common::Item };
 # -- public attributes
 
 
-has last_modified => ( is=>'rw', isa=>'Str', required=>0 );
-has playlist      => ( is=>'rw', isa=>'Str', required=>1 );
+has last_modified => ( rw, isa=>Str );
+has playlist      => ( rw, isa=>Str, required );
 
 1;
 
@@ -38,7 +40,15 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 1.093170
+version 1.093190
+
+=head1 DESCRIPTION
+
+L<Audio::MPD::Common::Item::Playlist> is more a placeholder with some
+attributes.
+
+The constructor should only be called by L<Audio::MPD::Common::Item>'s
+constructor.
 
 =head1 ATTRIBUTES
 
@@ -50,21 +60,9 @@ Last modification date.
 
 Path to the playlist file.
 
-=cut
-
-=pod
-
-=head1 DESCRIPTION
-
-L<Audio::MPD::Common::Item::Playlist> is more a placeholder with some
-attributes.
-
-The constructor should only be called by L<Audio::MPD::Common::Item>'s
-constructor.
-
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

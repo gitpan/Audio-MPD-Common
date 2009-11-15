@@ -14,9 +14,12 @@ my $build = Module::Build->new(
   ],
   requires      => {
     "base" => '0',
+    "MooseX::Has::Sugar" => '0',
+    "MooseX::Types::Moose" => '0',
     "English" => '0',
     "ExtUtils::MakeMaker" => '0',
     "overload" => '0',
+    "Sub::Exporter" => '0',
     "Moose::Util::TypeConstraints" => '0',
     "Readonly" => '0',
     "Test::More" => '0',

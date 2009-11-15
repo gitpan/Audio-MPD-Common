@@ -11,12 +11,14 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Directory;
-our $VERSION = '1.093170';
+our $VERSION = '1.093190';
 
 
 # ABSTRACT: a directory object
 
 use Moose;
+use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw{ Str };
 
 use base qw{ Audio::MPD::Common::Item };
 
@@ -24,7 +26,7 @@ use base qw{ Audio::MPD::Common::Item };
 # -- public attributes
 
 
-has directory => ( is=>'rw', isa=>'Str', required=>1 );
+has directory => ( rw, isa=>Str, required );
 
 1;
 
@@ -37,17 +39,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 1.093170
-
-=head1 ATTRIBUTES
-
-=head2 $item->directory;
-
-The path to the item's directory.
-
-=cut
-
-=pod
+version 1.093190
 
 =head1 DESCRIPTION
 
@@ -57,9 +49,15 @@ attributes.
 The constructor should only be called by L<Audio::MPD::Common::Item>'s
 constructor.
 
+=head1 ATTRIBUTES
+
+=head2 $item->directory;
+
+The path to the item's directory.
+
 =head1 AUTHOR
 
-Jerome Quelin
+  Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

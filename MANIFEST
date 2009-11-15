@@ -14,6 +14,7 @@ lib/Audio/MPD/Common/Item/Song.pm
 lib/Audio/MPD/Common/Stats.pm
 lib/Audio/MPD/Common/Status.pm
 lib/Audio/MPD/Common/Time.pm
+lib/Audio/MPD/Common/Types.pm
 t/00-compile.t
 t/10-item.t
 t/11-time.t
