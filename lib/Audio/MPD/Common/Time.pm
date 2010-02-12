@@ -11,9 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Time;
-our $VERSION = '1.093190';
-
-
+our $VERSION = '1.100430';
 # ABSTRACT: class representing time of current song
 
 use Moose 0.92; # need hash trait
@@ -110,7 +108,7 @@ Audio::MPD::Common::Time - class representing time of current song
 
 =head1 VERSION
 
-version 1.093190
+version 1.100430
 
 =head1 DESCRIPTION
 
@@ -202,3 +200,5 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+
+

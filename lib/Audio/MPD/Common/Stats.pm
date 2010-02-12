@@ -11,9 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Stats;
-our $VERSION = '1.093190';
-
-
+our $VERSION = '1.100430';
 # ABSTRACT: class representing MPD stats
 
 use Moose;
@@ -44,7 +42,7 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 1.093190
+version 1.100430
 
 =head1 DESCRIPTION
 
@@ -103,3 +101,4 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+

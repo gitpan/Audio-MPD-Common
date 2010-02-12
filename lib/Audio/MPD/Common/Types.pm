@@ -11,14 +11,10 @@ use warnings;
 use strict;
 
 package Audio::MPD::Common::Types;
-our $VERSION = '1.093190';
-
-
+our $VERSION = '1.100430';
 # ABSTRACT: types used in the distribution
 
 use Moose::Util::TypeConstraints;
-use Sub::Exporter;
-use Sub::Exporter -setup => { exports => [ qw{ State } ] };
 
 use Audio::MPD::Common::Time;
 
@@ -27,7 +23,6 @@ enum 'State' => qw{ play stop pause };
 coerce 'Audio::MPD::Common::Time'
     => from 'Str'
     => via { Audio::MPD::Common::Time->new(time=>$_) };
-
 
 1;
 
@@ -40,15 +35,14 @@ Audio::MPD::Common::Types - types used in the distribution
 
 =head1 VERSION
 
-version 1.093190
+version 1.100430
 
 =head1 DESCRIPTION
 
 This module implements the specific types used by the distribution, and
-exports them. It is using L<Sub::Exporter> underneath, so you can use
-all the shenanigans to change the export names.
+exports them (exporting is done by L<Moose::Util::TypeConstraints>).
 
-Current types defined and exported:
+Current types defined:
 
 =over 4
 
@@ -74,3 +68,4 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+

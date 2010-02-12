@@ -11,9 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common;
-our $VERSION = '1.093190';
-
-
+our $VERSION = '1.100430';
 # ABSTRACT: common helper classes for mpd
 
 1;
@@ -27,7 +25,7 @@ Audio::MPD::Common - common helper classes for mpd
 
 =head1 VERSION
 
-version 1.093190
+version 1.100430
 
 =head1 DESCRIPTION
 
@@ -121,3 +119,4 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+

@@ -11,9 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Directory;
-our $VERSION = '1.093190';
-
-
+our $VERSION = '1.100430';
 # ABSTRACT: a directory object
 
 use Moose;
@@ -39,7 +37,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 1.093190
+version 1.100430
 
 =head1 DESCRIPTION
 
@@ -70,3 +68,4 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+

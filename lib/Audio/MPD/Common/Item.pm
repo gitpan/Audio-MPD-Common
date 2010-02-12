@@ -11,9 +11,7 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item;
-our $VERSION = '1.093190';
-
-
+our $VERSION = '1.100430';
 # ABSTRACT: a generic collection item
 
 use Audio::MPD::Common::Item::Directory;
@@ -47,7 +45,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 1.093190
+version 1.100430
 
 =head1 SYNOPSIS
 
@@ -87,3 +85,4 @@ the same terms as the Perl 5 programming language system itself.
 
 
 __END__
+
