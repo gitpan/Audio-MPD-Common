@@ -1,5 +1,8 @@
 Revision history for Audio-MPD-Common
 
+1.110550  2011-02-24 16:05:29 Europe/Paris
+ - new object: amc::output
+
 1.100430  2010-02-12 12:55:26 Europe/Paris
  - WARNING: no more makefile.pl supplied, only a build.pl
  - sub::exporter no more used internally

@@ -4,29 +4,38 @@ use warnings;
 
 use Module::Build 0.3601;
 
+
 my %module_build_args = (
-                       'dist_abstract' => 'common helper classes for mpd',
-                       'dist_author' => [
-                                          'Jerome Quelin'
-                                        ],
-                       'dist_name' => 'Audio-MPD-Common',
-                       'script_files' => [],
-                       'module_name' => 'Audio::MPD::Common',
-                       'requires' => {
-                                       'MooseX::Has::Sugar' => 0,
-                                       'MooseX::Types::Moose' => 0,
-                                       'English' => 0,
-                                       'overload' => 0,
-                                       'Moose::Util::TypeConstraints' => 0,
-                                       'Readonly' => 0,
-                                       'Test::More' => 0,
-                                       'perl' => '5.008',
-                                       'File::Find' => 0,
-                                       'File::Temp' => 0,
-                                       'Moose' => '0.92'
-                                     },
-                       'license' => 'perl'
-                     );
+  'build_requires' => {
+    'File::Find' => '0',
+    'File::Temp' => '0',
+    'Module::Build' => '0.3601',
+    'Test::More' => '0.88'
+  },
+  'configure_requires' => {
+    'Module::Build' => '0.3601'
+  },
+  'dist_abstract' => 'common helper classes for mpd',
+  'dist_author' => [
+    'Jerome Quelin'
+  ],
+  'dist_name' => 'Audio-MPD-Common',
+  'dist_version' => '1.110550',
+  'license' => 'perl',
+  'module_name' => 'Audio::MPD::Common',
+  'recommends' => {},
+  'recursive_test_files' => 1,
+  'requires' => {
+    'Moose' => '0.92',
+    'Moose::Util::TypeConstraints' => '0',
+    'MooseX::Has::Sugar' => '0',
+    'MooseX::Types::Moose' => '0',
+    'Readonly' => '0',
+    'overload' => '0',
+    'perl' => '5.008'
+  },
+  'script_files' => []
+);
 
 
 my $build = Module::Build->new(%module_build_args);

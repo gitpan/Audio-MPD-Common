@@ -1,17 +1,19 @@
-# 
+#
 # This file is part of Audio-MPD-Common
-# 
+#
 # This software is copyright (c) 2007 by Jerome Quelin.
-# 
+#
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
-# 
+#
 use 5.008;
 use strict;
 use warnings;
 
 package Audio::MPD::Common::Item;
-our $VERSION = '1.100430';
+BEGIN {
+  $Audio::MPD::Common::Item::VERSION = '1.110550';
+}
 # ABSTRACT: a generic collection item
 
 use Audio::MPD::Common::Item::Directory;
@@ -45,7 +47,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 1.100430
+version 1.110550
 
 =head1 SYNOPSIS
 
