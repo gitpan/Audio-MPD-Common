@@ -11,8 +11,8 @@ use warnings;
 use strict;
 
 package Audio::MPD::Common::Types;
-BEGIN {
-  $Audio::MPD::Common::Types::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Types::VERSION = '1.120610';
 }
 # ABSTRACT: types used in the distribution
 
@@ -37,7 +37,7 @@ Audio::MPD::Common::Types - types used in the distribution
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -57,7 +57,7 @@ It also defines a type coertion from C<Str> to C<Audio::MPD::Common::Time>.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

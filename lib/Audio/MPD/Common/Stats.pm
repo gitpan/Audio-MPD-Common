@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Stats;
-BEGIN {
-  $Audio::MPD::Common::Stats::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Stats::VERSION = '1.120610';
 }
 # ABSTRACT: class representing MPD stats
 
@@ -44,7 +44,7 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -90,7 +90,7 @@ Last database update in UNIX time.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

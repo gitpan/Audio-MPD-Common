@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Time;
-BEGIN {
-  $Audio::MPD::Common::Time::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Time::VERSION = '1.120610';
 }
 # ABSTRACT: class representing time of current song
 
@@ -110,7 +110,7 @@ Audio::MPD::Common::Time - class representing time of current song
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -189,7 +189,7 @@ Return seconds part of total C<$time>.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

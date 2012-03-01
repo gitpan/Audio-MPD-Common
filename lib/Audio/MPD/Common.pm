@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common;
-BEGIN {
-  $Audio::MPD::Common::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::VERSION = '1.120610';
 }
 # ABSTRACT: common helper classes for mpd
 
@@ -27,7 +27,7 @@ Audio::MPD::Common - common helper classes for mpd
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -108,7 +108,7 @@ You may want to look at the modules really accessing MPD:
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Status;
-BEGIN {
-  $Audio::MPD::Common::Status::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Status::VERSION = '1.120610';
 }
 # ABSTRACT: class representing MPD status
 
@@ -54,7 +54,7 @@ Audio::MPD::Common::Status - class representing MPD status
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -132,7 +132,7 @@ The crossfade in seconds.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item;
-BEGIN {
-  $Audio::MPD::Common::Item::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Item::VERSION = '1.120610';
 }
 # ABSTRACT: a generic collection item
 
@@ -47,7 +47,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 SYNOPSIS
 
@@ -74,7 +74,7 @@ C<playlist> (respectively).
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
-BEGIN {
-  $Audio::MPD::Common::Item::Playlist::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Item::Playlist::VERSION = '1.120610';
 }
 # ABSTRACT: a playlist object
 
@@ -40,7 +40,7 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -62,7 +62,7 @@ Path to the playlist file.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

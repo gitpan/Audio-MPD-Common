@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Directory;
-BEGIN {
-  $Audio::MPD::Common::Item::Directory::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Item::Directory::VERSION = '1.120610';
 }
 # ABSTRACT: a directory object
 
@@ -39,7 +39,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -57,7 +57,7 @@ The path to the item's directory.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

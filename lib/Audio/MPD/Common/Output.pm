@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Output;
-BEGIN {
-  $Audio::MPD::Common::Output::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Output::VERSION = '1.120610';
 }
 # ABSTRACT: class representing MPD output
 
@@ -39,7 +39,7 @@ Audio::MPD::Common::Output - class representing MPD output
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -71,7 +71,7 @@ Boolean stating whether the output is enabled or not.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 

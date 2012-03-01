@@ -11,8 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-BEGIN {
-  $Audio::MPD::Common::Item::Song::VERSION = '1.110550';
+{
+  $Audio::MPD::Common::Item::Song::VERSION = '1.120610';
 }
 # ABSTRACT: a song object with some audio tags
 
@@ -36,6 +36,7 @@ has date   => ( rw, isa=>Str );
 has disc   => ( rw, isa=>Str );
 has file   => ( rw, isa=>Str, required );
 has genre  => ( rw, isa=>Str );
+has last_modified => ( rw, isa=>Str );
 has id     => ( rw, isa=>Int );
 has name   => ( rw, isa=>Str );
 has pos    => ( rw, isa=>Int );
@@ -72,7 +73,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.110550
+version 1.120610
 
 =head1 DESCRIPTION
 
@@ -112,6 +113,10 @@ Genre of the song.
 =head2 $song->id;
 
 Id of the song in MPD's database.
+
+=head2 $song->last_modified;
+
+Last time the song was modified.
 
 =head2 $song->name;
 
@@ -158,7 +163,7 @@ This method is also used to automatically stringify the C<$song>.
 
 =head1 AUTHOR
 
-  Jerome Quelin
+Jerome Quelin
 
 =head1 COPYRIGHT AND LICENSE
 
