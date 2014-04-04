@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
-{
-  $Audio::MPD::Common::Item::Playlist::VERSION = '1.120881';
-}
 # ABSTRACT: a playlist object
-
+$Audio::MPD::Common::Item::Playlist::VERSION = '2.000';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Str };
@@ -31,8 +28,11 @@ has playlist      => ( rw, isa=>Str, required );
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -40,7 +40,7 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -72,7 +72,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

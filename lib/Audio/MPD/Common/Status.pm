@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Status;
-{
-  $Audio::MPD::Common::Status::VERSION = '1.120881';
-}
 # ABSTRACT: class representing MPD status
-
+$Audio::MPD::Common::Status::VERSION = '2.000';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Bool Int Str };
@@ -45,8 +42,11 @@ has xfade          => ( ro, isa=>Int  );
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -54,7 +54,7 @@ Audio::MPD::Common::Status - class representing MPD status
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -142,7 +142,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

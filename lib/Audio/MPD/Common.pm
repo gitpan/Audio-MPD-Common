@@ -11,15 +11,15 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common;
-{
-  $Audio::MPD::Common::VERSION = '1.120881';
-}
 # ABSTRACT: common helper classes for mpd
-
+$Audio::MPD::Common::VERSION = '2.000';
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -27,7 +27,7 @@ Audio::MPD::Common - common helper classes for mpd
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -118,7 +118,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

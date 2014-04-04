@@ -11,16 +11,13 @@ use warnings;
 use strict;
 
 package Audio::MPD::Common::Types;
-{
-  $Audio::MPD::Common::Types::VERSION = '1.120881';
-}
 # ABSTRACT: types used in the distribution
-
+$Audio::MPD::Common::Types::VERSION = '2.000';
 use Moose::Util::TypeConstraints;
 
 use Audio::MPD::Common::Time;
 
-enum 'State' => qw{ play stop pause };
+enum 'State' => [ qw{ play stop pause } ];
 
 coerce 'Audio::MPD::Common::Time'
     => from 'Str'
@@ -28,8 +25,11 @@ coerce 'Audio::MPD::Common::Time'
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -37,7 +37,7 @@ Audio::MPD::Common::Types - types used in the distribution
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -67,7 +67,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

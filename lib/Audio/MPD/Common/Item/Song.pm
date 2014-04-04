@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Song;
-{
-  $Audio::MPD::Common::Item::Song::VERSION = '1.120881';
-}
 # ABSTRACT: a song object with some audio tags
-
+$Audio::MPD::Common::Item::Song::VERSION = '2.000';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Int Str };
@@ -90,8 +87,11 @@ sub as_string {
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -99,7 +99,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -219,7 +219,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

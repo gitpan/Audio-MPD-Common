@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Output;
-{
-  $Audio::MPD::Common::Output::VERSION = '1.120881';
-}
 # ABSTRACT: class representing MPD output
-
+$Audio::MPD::Common::Output::VERSION = '2.000';
 use Moose;
 use MooseX::Has::Sugar;
 
@@ -30,8 +27,11 @@ has enabled     => ( ro, isa=>"Bool", required );
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -39,7 +39,7 @@ Audio::MPD::Common::Output - class representing MPD output
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -81,7 +81,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

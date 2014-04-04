@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item::Directory;
-{
-  $Audio::MPD::Common::Item::Directory::VERSION = '1.120881';
-}
 # ABSTRACT: a directory object
-
+$Audio::MPD::Common::Item::Directory::VERSION = '2.000';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Str };
@@ -30,8 +27,11 @@ has directory => ( rw, isa=>Str, required );
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -39,7 +39,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 DESCRIPTION
 
@@ -67,7 +67,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

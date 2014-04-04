@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package Audio::MPD::Common::Item;
-{
-  $Audio::MPD::Common::Item::VERSION = '1.120881';
-}
 # ABSTRACT: a generic collection item
-
+$Audio::MPD::Common::Item::VERSION = '2.000';
 use Audio::MPD::Common::Item::Directory;
 use Audio::MPD::Common::Item::Playlist;
 use Audio::MPD::Common::Item::Song;
@@ -38,8 +35,11 @@ sub new {
 
 1;
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -47,7 +47,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 1.120881
+version 2.000
 
 =head1 SYNOPSIS
 
@@ -84,7 +84,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
