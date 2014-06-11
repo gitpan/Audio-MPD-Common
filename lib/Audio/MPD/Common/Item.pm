@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Item;
 # ABSTRACT: a generic collection item
-$Audio::MPD::Common::Item::VERSION = '2.000';
+$Audio::MPD::Common::Item::VERSION = '2.001';
 use Audio::MPD::Common::Item::Directory;
 use Audio::MPD::Common::Item::Playlist;
 use Audio::MPD::Common::Item::Song;
@@ -47,7 +47,7 @@ Audio::MPD::Common::Item - a generic collection item
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 SYNOPSIS
 

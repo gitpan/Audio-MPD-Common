@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Status;
 # ABSTRACT: class representing MPD status
-$Audio::MPD::Common::Status::VERSION = '2.000';
+$Audio::MPD::Common::Status::VERSION = '2.001';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Bool Int Str };
@@ -37,7 +37,7 @@ has state          => ( ro, isa=>'State' );
 has time           => ( ro, isa=>'Audio::MPD::Common::Time', coerce );
 has updating_db    => ( ro, isa=>Int  );
 has volume         => ( ro, isa=>Int  );
-has xfade          => ( ro, isa=>Int  );
+has xfade          => ( ro, isa=>Int, default=>0 );
 
 
 1;
@@ -54,7 +54,7 @@ Audio::MPD::Common::Status - class representing MPD status
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

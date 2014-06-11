@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common;
 # ABSTRACT: common helper classes for mpd
-$Audio::MPD::Common::VERSION = '2.000';
+$Audio::MPD::Common::VERSION = '2.001';
 1;
 
 __END__
@@ -27,7 +27,7 @@ Audio::MPD::Common - common helper classes for mpd
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

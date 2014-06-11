@@ -12,7 +12,7 @@ use strict;
 
 package Audio::MPD::Common::Types;
 # ABSTRACT: types used in the distribution
-$Audio::MPD::Common::Types::VERSION = '2.000';
+$Audio::MPD::Common::Types::VERSION = '2.001';
 use Moose::Util::TypeConstraints;
 
 use Audio::MPD::Common::Time;
@@ -37,7 +37,7 @@ Audio::MPD::Common::Types - types used in the distribution
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

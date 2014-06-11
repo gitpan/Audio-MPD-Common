@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Output;
 # ABSTRACT: class representing MPD output
-$Audio::MPD::Common::Output::VERSION = '2.000';
+$Audio::MPD::Common::Output::VERSION = '2.001';
 use Moose;
 use MooseX::Has::Sugar;
 
@@ -39,7 +39,7 @@ Audio::MPD::Common::Output - class representing MPD output
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

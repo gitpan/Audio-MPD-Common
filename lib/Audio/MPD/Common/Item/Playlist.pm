@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Item::Playlist;
 # ABSTRACT: a playlist object
-$Audio::MPD::Common::Item::Playlist::VERSION = '2.000';
+$Audio::MPD::Common::Item::Playlist::VERSION = '2.001';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Str };
@@ -40,7 +40,7 @@ Audio::MPD::Common::Item::Playlist - a playlist object
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

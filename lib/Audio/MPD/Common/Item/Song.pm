@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Item::Song;
 # ABSTRACT: a song object with some audio tags
-$Audio::MPD::Common::Item::Song::VERSION = '2.000';
+$Audio::MPD::Common::Item::Song::VERSION = '2.001';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Int Str };
@@ -99,7 +99,7 @@ Audio::MPD::Common::Item::Song - a song object with some audio tags
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 

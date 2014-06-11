@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Item::Directory;
 # ABSTRACT: a directory object
-$Audio::MPD::Common::Item::Directory::VERSION = '2.000';
+$Audio::MPD::Common::Item::Directory::VERSION = '2.001';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Str };
@@ -39,7 +39,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 2.000
+version 2.001
 
 =head1 DESCRIPTION
 
