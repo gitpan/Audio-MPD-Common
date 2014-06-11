@@ -20,34 +20,34 @@ name: Audio-MPD-Common
 provides:
   Audio::MPD::Common:
     file: lib/Audio/MPD/Common.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Item:
     file: lib/Audio/MPD/Common/Item.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Item::Directory:
     file: lib/Audio/MPD/Common/Item/Directory.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Item::Playlist:
     file: lib/Audio/MPD/Common/Item/Playlist.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Item::Song:
     file: lib/Audio/MPD/Common/Item/Song.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Output:
     file: lib/Audio/MPD/Common/Output.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Stats:
     file: lib/Audio/MPD/Common/Stats.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Status:
     file: lib/Audio/MPD/Common/Status.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Time:
     file: lib/Audio/MPD/Common/Time.pm
-    version: '2.001'
+    version: '2.002'
   Audio::MPD::Common::Types:
     file: lib/Audio/MPD/Common/Types.pm
-    version: '2.001'
+    version: '2.002'
 requires:
   Moose: '0.92'
   Moose::Util::TypeConstraints: '0'
@@ -65,7 +65,7 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Audio-MPD-Common
   homepage: http://search.cpan.org/dist/Audio-MPD-Common/
   repository: git://github.com/jquelin/audio-mpd-common.git
-version: '2.001'
+version: '2.002'
 x_Dist_Zilla:
   perl:
     version: '5.020000'
@@ -344,7 +344,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v2.001
+          tag: v2.002
           tag_format: v%v
           tag_message: v%v
           time_zone: local

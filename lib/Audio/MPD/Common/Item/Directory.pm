@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Item::Directory;
 # ABSTRACT: a directory object
-$Audio::MPD::Common::Item::Directory::VERSION = '2.001';
+$Audio::MPD::Common::Item::Directory::VERSION = '2.002';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Str };
@@ -23,7 +23,8 @@ use base qw{ Audio::MPD::Common::Item };
 # -- public attributes
 
 
-has directory => ( rw, isa=>Str, required );
+has directory     => ( rw, isa=>Str, required );
+has last_modified => ( rw, isa=>Str );
 
 1;
 
@@ -39,7 +40,7 @@ Audio::MPD::Common::Item::Directory - a directory object
 
 =head1 VERSION
 
-version 2.001
+version 2.002
 
 =head1 DESCRIPTION
 
@@ -54,6 +55,10 @@ constructor.
 =head2 $item->directory;
 
 The path to the item's directory.
+
+=head2 $item->last_modified;
+
+Last modification date.
 
 =head1 AUTHOR
 

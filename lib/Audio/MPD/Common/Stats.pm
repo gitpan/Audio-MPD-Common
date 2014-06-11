@@ -12,7 +12,7 @@ use warnings;
 
 package Audio::MPD::Common::Stats;
 # ABSTRACT: class representing MPD stats
-$Audio::MPD::Common::Stats::VERSION = '2.001';
+$Audio::MPD::Common::Stats::VERSION = '2.002';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw{ Int };
@@ -44,7 +44,7 @@ Audio::MPD::Common::Stats - class representing MPD stats
 
 =head1 VERSION
 
-version 2.001
+version 2.002
 
 =head1 DESCRIPTION
 
